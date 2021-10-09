@@ -23,7 +23,7 @@ app = Flask(__name__)
 
 
 @app.route('/')
-def hello(xx):
+def hello():
     """Return a friendly HTTP greeting."""
     return 'Hello World!'
 
