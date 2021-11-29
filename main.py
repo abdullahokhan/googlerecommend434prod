@@ -75,7 +75,7 @@ def main():
                    FROM
                       aggregate_web_stats
                 )
-            CREATE OR REPLACE MODEL bqml.recommendaidev
+            CREATE OR REPLACE MODEL bqml.recommendaidprod
             OPTIONS(model_type='matrix_factorization',
             user_col='userId',
             item_col='itemId',
@@ -133,7 +133,7 @@ def top5prodsallcust():
                             ORDER BY
                               predicted_session_duration_confidence DESC
                             LIMIT 5) as recommended
-                FROM ML.RECOMMEND(MODEL bqml.recommendaidev)
+                FROM ML.RECOMMEND(MODEL bqml.recommendaidprod)
                 GROUP BY userId
             )
 
